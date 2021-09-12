@@ -1,1 +1,1 @@
-# liver-fatty-acid-classification
+# fatty-liver-calculator
