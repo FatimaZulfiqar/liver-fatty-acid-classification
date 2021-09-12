@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Fatty Liver Grade Classification</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Fatty Liver Grade Classification</h1>
+<div style = "height: 700px;  width: 600px;  overflow-y: scroll">
+    <!-- Form to enter new data for predictions  -->
+    <form action="{{ url_for('predict')}}"method="POST">
+        <input type="text" name="gender" placeholder="Gender (M=0, F:1)" required="required" /><br>
+    	<input type="number" name="age" placeholder="Age" required="required" /><br>
+        <input type="number" step="any" name="bmi" placeholder="BMI" required="required" /><br>
+        <input type="number" name="obesity class" placeholder="Obesity Class (0 - normal 1- overweight 25-29.9  2- class 1 30-34.9  3 - class 2 35-39.9  4 - class 3 >40 )" required="required" /><br>
+        <input type="number" name="ocp" placeholder="OCP (Y=1, N=0)" required="required" /><br>
+        <input type="number" name="Significant alcohol use" placeholder="Significant Alcohol Use (Y=1, N=0)" required="required" /><br>
+
+        <input type="number" name="Hypothyroidism" placeholder="Hypothyroidism (Y=1, N=0)" required="required" /><br>
+        <input type="number" name="IVDU" placeholder="IVDU (Y=1, N=0)" required="required" /><br>
+        <input type="number" name="DM" placeholder="DM (0=0, T1=1, T2=2)" required="required" /><br>
+        <input type="number" name="HIV" placeholder="HIV (Y=1, N=0)" required="required" /><br>
+        <input type="number" name="Concomitant Statin" placeholder="Concomitant Statin (Y=1, N=0)" required="required" /><br>
+
+        <input type="text" name="HCV Genotype" placeholder="HCV Genotype Value 0=0, 1a=1, 1b=2, 2b=3, 3=4, 3a=5, 4=6, 6=7" required="required" /><br>
+        <input type="number" name="AST" placeholder="AST Value" required="required" /><br>
+        <input type="number" name="ALT" placeholder="ALT Value" required="required" /><br>
+        <input type="number" name="Platelets Count" placeholder="platelets (X 1000)" required="required" /><br>
+        <input type="number" name="Apolipoprotein" placeholder="Apolipoprotein  A1 Value" required="required" /><br>
+
+        <input type="number" name="macroglobulin" datatype="int" placeholder="Alpha 2 macroglobulin" required="required" /><br>
+        <input type="text" name="gene polymorphism" placeholder="Il28 gene polymorphism type 0=0, CC=1, CT=2, TT=3" required="required" /><br>
+        <input type="number" step="any" name="HbA1c" placeholder="HbA1c Value" required="required" /><br>
+        <input type="number" name="Triglycerides" placeholder="Triglycerides Value" required="required" /><br>
+
+        <input type="number" name="Pure insulin" placeholder="Pure insulin (Y=1, N=0)" required="required" /><br>
+        <input type="number" name="Metformin" placeholder="Metformin (Y=1, N=0)" required="required" /><br>
+        <input type="number" name="DPP401" placeholder="DPP 4 inhibitors -1 and SGLT2 inhibitors- 2, None -0" required="required" /><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+</div>
+
+   <br>
+   <br>
+ </div>
+
+ <div>
+    {{pred}}
+ </div>
+
+</body>
+</html>
